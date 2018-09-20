@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<style>*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0}html,body{overflow:hidden}</style>
+<meta name='generator' content='mdx-deck'>
+<style data-styled-components="jotsoC kmKUJZ eGsEPm zIEGn enxKql fYTmJR fhSvky jHprQs bMMjuq deUraF hISnYn bIQQAp kPArTU cWSZJf hruouF iLvMQI cXgiMa eCoqJu hnohUl jlCnmb hOCGEu fbxTAJ bNhvRs">
+/* sc-component-id: sc-bdVaJa */
+.sc-bdVaJa {} .eCoqJu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-bottom:8px;margin-left:auto;margin-right:auto;} @media print{.eCoqJu{display:none;}}
+/* sc-component-id: sc-bwzfXH */
+.sc-bwzfXH {} .hnohUl{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:4px solid transparent;background-clip:padding-box;border-radius:9999px;width:8px;height:8px;color:inherit;opacity:0.5;margin:0px;padding:4px;color:#fff;background-color:#fff;} .hnohUl:focus{outline:none;box-shadow:0 0 0 1px;}.jlCnmb{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:4px solid transparent;background-clip:padding-box;border-radius:9999px;width:8px;height:8px;color:inherit;opacity:0.125;margin:0px;padding:4px;color:#fff;background-color:#fff;} .jlCnmb:focus{outline:none;box-shadow:0 0 0 1px;}
+/* sc-component-id: sc-htpNat */
+.sc-htpNat {} .cXgiMa{position:fixed;left:0;right:0;bottom:0;}
+/* sc-component-id: sc-bxivhb */
+.sc-bxivhb {} .fbxTAJ{cursor:pointer;width:64px;height:100vh;}
+/* sc-component-id: sc-ifAKCX */
+.sc-ifAKCX {} .hOCGEu{position:fixed;top:0;left:0;bottom:0;}
+/* sc-component-id: sc-EHOje */
+.sc-EHOje {} .bNhvRs{position:fixed;top:0;right:0;bottom:0;}
+/* sc-component-id: sc-bZQynM */
+.sc-bZQynM {} .kmKUJZ{overflow-x:hidden;width:100%;height:100%;} @media print{.kmKUJZ{height:auto;overflow-x:visible;}}
+/* sc-component-id: sc-gzVnrw */
+.sc-gzVnrw {} .eGsEPm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;height:100%;-webkit-transition-property:-webkit-transform;-webkit-transition-property:transform;transition-property:transform;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out;-webkit-transition-duration:.3s;transition-duration:.3s;-webkit-transform:translateX(0%);-ms-transform:translateX(0%);transform:translateX(0%);} @media print{.eGsEPm{height:auto;display:block;}}
+/* sc-component-id: sc-htoDjs */
+.sc-htoDjs {} .zIEGn{-webkit-flex:none;-ms-flex:none;flex:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;overflow:hidden;width:100%;height:100%;padding-left:32px;padding-right:32px;} @media print{.zIEGn{width:100vw;height:100vh;page-break-after:always;page-break-inside:avoid;-webkit-print-color-adjust:exact;}} @media screen and (min-width:40em){.zIEGn{padding-left:64px;padding-right:64px;}} @media screen and (min-width:52em){.zIEGn{padding-left:128px;padding-right:128px;}}
+/* sc-component-id: sc-dnqmqq */
+.sc-dnqmqq {} .jotsoC{font-family:"Avenir Next",system-ui,sans-serif;font-size:16px;text-align:center;width:100vw;height:100vh;color:#fff;background-color:#111;} @media print{.jotsoC{font-size:24px;height:auto;}} @media screen and (min-width:64em){.jotsoC{font-size:32px;}}
+/* sc-component-id: sc-fjdhpX */
+.sc-fjdhpX {} .fYTmJR{line-height:1.25;font-size:3em;margin-bottom:16px;margin-top:16px;color:heading;text-transform:uppercase;-webkit-letter-spacing:0.1em;-moz-letter-spacing:0.1em;-ms-letter-spacing:0.1em;letter-spacing:0.1em;font-weight:600;}
+/* sc-component-id: sc-jzJRlG */
+.sc-jzJRlG {}
+/* sc-component-id: sc-cSHVUG */
+.sc-cSHVUG {} .bMMjuq{line-height:1.25;font-size:2em;margin-bottom:16px;margin-top:16px;color:heading;text-transform:uppercase;-webkit-letter-spacing:0.1em;-moz-letter-spacing:0.1em;-ms-letter-spacing:0.1em;letter-spacing:0.1em;font-weight:600;}
+/* sc-component-id: sc-kAzzGY */
+.sc-kAzzGY {}
+/* sc-component-id: sc-hMqMXs */
+.sc-hMqMXs {} .kPArTU{color:#0af;}
+/* sc-component-id: sc-kEYyzF */
+.sc-kEYyzF {} .fhSvky{font-size:1.5em;}
+/* sc-component-id: sc-kkGfuU */
+.sc-kkGfuU {} .hISnYn{text-align:left;font-size:1.5em;text-align:left;}
+/* sc-component-id: sc-iAyFgw */
+.sc-iAyFgw {} .iLvMQI{text-align:left;font-size:1.5em;text-align:left;}
+/* sc-component-id: sc-hSdWYo */
+.sc-hSdWYo {}
+/* sc-component-id: sc-cvbbAY */
+.sc-cvbbAY {} .deUraF{font-family:Menlo,monospace;text-align:left;white-space:pre-wrap;font-size:1em;margin:0px;padding:8px;color:#0af;background-color:#000;}
+/* sc-component-id: sc-cMljjf */
+.sc-cMljjf {} .cWSZJf{overflow-x:auto;}
+/* sc-component-id: sc-jAaTju */
+.sc-jAaTju {} .hruouF{width:100%;border-collapse:separate;border-spacing:0;} .hruouF td,.hruouF th{text-align:left;padding-right:.5em;padding-top:.25em;padding-bottom:.25em;border-bottom:1px solid;vertical-align:top;}</style>
+</head>
+<body>
+<div id=root><div><div class="sc-dnqmqq jotsoC" mode="NORMAL" step="0" width="100vw" height="100vh" color="text"><div class="sc-bZQynM kmKUJZ"><div class="sc-gzVnrw eGsEPm"><div class="sc-htoDjs zIEGn"><div><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">Moden javascript</h1></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">これから個人的によく使っているJavaScriptの<br/>構文や機能の中からES6以降に追加されたものを<br/>中心に紹介していきたいと思います。</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">そもそもES6とは？😒</p><ul><li style="visibility:hidden">ECMASCriptの6th Edition</li><li style="visibility:hidden">ECMAScriptはEcma Internationalという団体によって標準化されているJavaScriptの仕様</li><li style="visibility:hidden">2015年に策定されているため正式名称はES2015</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">変数</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">var a = &#x27;hoge&#x27;;
+let b = &#x27;hoge&#x27;;     // 再宣言が不可能
+const c = &#x27;hoge&#x27;;   // 再宣言と再代入が不可能
+
+if (true) { var test = &#x27;hoge&#x27;; }
+console.log(test);  // 結果：&#x27;hoge&#x27; アクセスできる
+
+if (true) { let test2 = &#x27;hoge2&#x27;; }
+console.log(test2);  // 結果：undefined アクセスできない
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">ということで😤</p><ul><li style="visibility:hidden">基本的にconstを使う</li><li style="visibility:hidden">forなどのイテレータで再代入が必要な所のみletを使う</li><li style="visibility:hidden">配列やオブジェクトもconst</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">配列</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const arr = [&#x27;hoge&#x27;];
+arr[0] = &#x27;hogehoge&#x27;;
+</pre><p class="sc-kEYyzF fhSvky" font-size="2">オブジェクト</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const obj = {
+  hoge: &#x27;hoge&#x27;
+};
+obj.hoge = &#x27;hogehoge&#x27;;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">関数</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const fn1 = (a, b) =&gt; { return a * b }; // アロー関数
+// ↑↓同じ
+function fn1a(a, b) {
+  return a * b;
+}
+
+const fn2 = a =&gt; a * 2; // 省略可
+// ↑↓同じ
+function fn2a(a) {
+  return a * 2;
+}
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">ということで😤</p><ul><li style="visibility:hidden">個人的にはアロー関数が好き</li><li style="visibility:hidden">これは好みの問題かと思う</li><li style="visibility:hidden">ただし、thisを扱う場合は参照先が異なるので注意が必要</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">論理演算子の省略記法</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const a = &#x27;&#x27;;  // 0や空文字、undefinedはfalseと判定される
+const b = &#x27;hoge&#x27;;
+
+const hoge1 = a || b; // &#x27;hoge&#x27;
+const hoge2 = b || a; // &#x27;hoge&#x27;
+const hoge3 = a || a; // &#x27;&#x27;
+
+const hoge4 = a &amp;&amp; b; // &#x27;&#x27;
+const hoge5 = b &amp;&amp; a; // &#x27;&#x27;
+const hoge6 = b &amp;&amp; b; // &#x27;hoge&#x27;
+
+if (a) { hoge = b }  // ← これの代わり
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">テンプレート文字列</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const foo = &#x27;hoge&#x27;
+const bar = &#x27;foo&#x27;
+const bar = () =&gt; {
+    return &#x27;bar&#x27;
+}
+
+// 変数を展開する
+const foobar = `${hoge}, ${foo}` // &#x27;hoge, foo&#x27;
+
+// 式の評価もできる
+const some = `${bar()}` // &#x27;bar&#x27;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">展開(スプレッド)演算子</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const arr = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;];
+console.log(arr);  // Array(3)
+console.log(...arr);  // &#x27;a&#x27; &#x27;b&#x27; &#x27;c&#x27;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Objectのコピーにも使える</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const obj1 = { a: 1, b: 2, c: 3 };
+const obj2 = { a: 1, b: 2, c: 3 };
+const hoge = obj1;  // ディープコピー
+const foo = {...obj2};  // シャロウコピー
+// const foo = Object.assign({}, obj2) と同じ
+
+hoge.a = 3;  // 参照も渡してしまっているため、元のobjも変わってしまう
+// hoge: { a: 3, b: 2, c: 3 }, obj1: { a: 3, b: 2, c: 3 }
+
+foo.a = 3;  // 値だけ渡しているのでfooしか変わらない
+// foo: { a: 3, b: 2, c: 3 }, obj2: { a: 1, b: 2, c: 3 }
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">配列操作</h2><ul class="sc-kkGfuU hISnYn" font-size="2"><li class="sc-hSdWYo bIQQAp">種類が豊富で大体のことは標準関数で実現可能</li><li class="sc-hSdWYo bIQQAp">よく使っているものをいくつか紹介</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Array.prototype.filter</p><p class="sc-kEYyzF fhSvky" font-size="2"><a class="sc-hMqMXs kPArTU" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" color="link">詳しくはこちら</a></p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">// 配列から条件に一致した値を抽出して配列を返す
+
+const arr = [1,2,3,4,5,6].filter(element =&gt;  3 &lt; element);
+console.log(&#x27;arr&#x27;, arr);
+
+/* 結果 */
+// (arr, [4,5,6])
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Array.prototype.map</p><p class="sc-kEYyzF fhSvky" font-size="2"><a class="sc-hMqMXs kPArTU" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map" color="link">詳しくはこちら</a></p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">// 繰り返し処理を行うがforEachとの違いは戻り値があるかどうか
+// 配列の各要素で処理して新しい配列を生成する
+
+const arr = [1,2,3,4].map(value =&gt; value * 2);
+console.log(&#x27;arr&#x27;, arr);
+
+/* 結果 */
+// (arr, [2,4,6,8])
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Array.prototype.reduce</p><p class="sc-kEYyzF fhSvky" font-size="2"><a class="sc-hMqMXs kPArTU" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" color="link">詳しくはこちら</a></p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">// アキュムレータと配列の各要素に対して（左から右へ）関数を適用し、単一の値を返す
+
+const initialValue = 10;
+const res = [1,2,3,4,5].reduce((a, c) =&gt; a + c, initialValue);
+console.log(&#x27;res&#x27;, res);
+
+/* 結果 */
+// (res, 25)
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><div class="sc-cMljjf cWSZJf"><table class="sc-jAaTju hruouF"><thead><tr><th align="left"></th><th align="left"></th></tr></thead><tbody><tr><td align="left">Array.prototype.concat</td><td align="left">２つの配列を合成</td></tr><tr><td align="left">Array.prototype.find</td><td align="left">配列から条件に一致した最初の値を返す</td></tr><tr><td align="left">Array.prototype.forEach</td><td align="left">配列の要素で繰り返し(戻り値は無し)</td></tr><tr><td align="left">Array.prototype.includes</td><td align="left">配列の要素を検索する時に使用</td></tr><tr><td align="left">Array.prototype.join</td><td align="left">配列の要素を合成して文字列にして返す</td></tr></tbody></table></div><p class="sc-kEYyzF fhSvky" font-size="2">他にもたくさんあるので興味があれば<a class="sc-hMqMXs kPArTU" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array" color="link">こちら</a>を眺めてみると思わぬ発見があるかもしれない</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">オブジェクト操作</h2><p class="sc-kEYyzF fhSvky" font-size="2">良い感じにしてくれる標準関数があまりない印象<br/>※下記ライブラリ等の推奨</p><ul class="sc-kkGfuU hISnYn" font-size="2"><li class="sc-hSdWYo bIQQAp"><a class="sc-hMqMXs kPArTU" href="https://lodash.com/" color="link">Lodash.js</a></li><li class="sc-hSdWYo bIQQAp"><a class="sc-hMqMXs kPArTU" href="https://ramdajs.com/" color="link">Ramda.js</a></li><li class="sc-hSdWYo bIQQAp"><a class="sc-hMqMXs kPArTU" href="https://facebook.github.io/immutable-js/" color="link">Immutable.js</a></li></ul></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Object.assign<br/><a class="sc-hMqMXs kPArTU" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" color="link">詳しくはこちら</a>  </p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">// オブジェクトのコピーや合成
+// 合成によく使っている ※コピーであればスプレッド演算子の方が楽
+
+const obj = { a: 1, b: 2, c: 3 };
+
+console.log(Object.assign({c: 4, d: 5}, obj));
+console.log(Object.assign(obj, {c: 4, d: 5}));
+console.log(obj);
+
+/* 結果 */
+// { c: 3, d: 5, a: 1, b: 2 }
+// { a: 1, b: 2, c: 4, d: 5 }
+// { a: 1, b: 2, c: 4, d: 5 }
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Object.keys<br/><a class="sc-hMqMXs kPArTU" href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/keys" color="link">詳しくはこちら</a></p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">// key値を配列にして戻す
+// 戻り値から配列操作するためによく使う
+
+const obj = { a: 1, b: 2, c: 3 };
+console.log(Object.keys(obj));
+
+/* 結果 */
+// Array(3) [ &#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27; ]
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">変数格納</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const obj = { a: 1, b: 2, c: 3 };
+let { a, b, c } = obj;
+console.log(a, b, c);  // 1 2 3
+a = 5;
+console.log(a, obj);  //  5, { a: 1, b: 2, c: 3 }
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">Promise</h2><p class="sc-kEYyzF fhSvky" font-size="2">非同期処理の最終的な完了もしくは失敗を表すオブジェクト<br/>要は非同期処理を良い感じに扱うもの</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こういった処理を…</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">setTimeout(function() {
+  console.log(&#x27;hoge&#x27;);
+}, 300);
+console.log(&#x27;foo&#x27;);
+
+/* 結果 */
+// foo
+// hoge
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">hogeを表示してからfooを表示したいって場合</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こんな感じで書くと実現できる</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    console.log(&#x27;hoge&#x27;);
+    resolve();
+  }, 300);
+});
+promise.then(function() {
+  console.log(&#x27;foo&#x27;);
+});
+
+/* 結果 */
+// hoge
+// foo
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    if (success) {
+      resolve();  // ←resolveを実行するとthenになる
+    } else {
+      reject();  // ←rejectを実行するとcatchになる
+    }
+  }, 300);
+});
+promise.then(function() {
+  console.log(&#x27;success&#x27;);
+}).catch(function() {
+  console.log(&#x27;error&#x27;);
+}).finaly(function() { ←// どちらでも実行される
+  console.log(&#x27;default&#x27;);
+});
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">実はこの形、結構馴染み深い</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">$.ajax({
+  url:&#x27;./hoge&#x27;,
+  type:&#x27;POST&#x27;,
+  data:{
+    &#x27;userid&#x27;:$(&#x27;#userid&#x27;).val(),
+    &#x27;passward&#x27;:$(&#x27;#passward&#x27;).val()
+  }
+}).done(data =&gt; {   // ← then 
+  console.log(data);
+}).fail(data =&gt; {   // ← catch
+  console.log(data);
+}).always(data =&gt; { // ← finaly
+  console.log(data);
+});
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Promiseを使うことによって本来シングルスレッドの<br/>JavaScriptで並列処理を行うことができる</p><p class="sc-kEYyzF fhSvky" font-size="2">※WebWorkerの実装が進んでいるようなので<br/>Promise使わなくても実現可能かも？  </p></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise1 = Promise.resolve(3);
+const promise2 = 42;  // ← Promise以外も設定可能
+const promise3 = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    resolve(&#x27;foo&#x27;);
+  }, 100);
+});
+
+// 全て終わってから処理したい時
+Promise.all([promise1, promise2, promise3]).then(function(values) {
+  console.log(values); // 結果：Array [3, 42, &quot;foo&quot;]
+});
+
+// どれか１つが終わったら処理したい時
+Promise.race([promise1, promise2, promise3]).then(function(value) {
+  console.log(value); // 結果：3
+});
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">繰り返しを用いた直列処理(逐次処理)が厄介</p><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">😱😱😱</h1></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こういう場合</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const add = n =&gt; new Promise(resolve =&gt; {
+  setTimeout(() =&gt; {
+    resolve(n + 10)
+  }, 2000);
+});
+
+for(let i = 1; i &lt; 10; i++) {
+  console.log(i);
+  add(i).then(v =&gt; {
+    console.log(v);
+  });
+};
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">本当はこうなってほしい</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">1
+11
+2
+12
+.
+.
+省略
+.
+.
+8
+18
+9
+19
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">でも結果は😭</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">1
+2
+3
+.
+.
+省略
+.
+.
+17
+18
+19
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">そこで使うのが…</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">async function</h2><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">+</h2><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">await</h2></div></div><div class="sc-htoDjs zIEGn"><div><ul class="sc-kkGfuU hISnYn" font-size="2"><li class="sc-hSdWYo bIQQAp">async関数内でのみ、awaitが使用可能</li><li class="sc-hSdWYo bIQQAp">awaitはasync関数の実行を一時停止しPromiseの解決を待つ</li><li class="sc-hSdWYo bIQQAp">Promiseが解決したら、async関数の実行が再開される</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const add = n =&gt; new Promise(resolve =&gt; {
+  setTimeout(() =&gt; {
+    resolve(n + 10)
+  }, 2000);
+});
+
+(async () =&gt; {  // 関数の最初にasyncを付ける
+  for(let i = 1; i &lt; 10; i++) {
+    console.log(i);
+    await add(i).then(v =&gt; {  // async関数内でPromiseを返す関数の最初にawaitを付ける
+      console.log(v);
+    });
+  }
+ })();
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">結果</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">1
+11
+2
+12
+.
+.
+省略
+.
+.
+8
+18
+9
+19
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">正直、使わなくてもできる</p><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">😏</h1></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Array.prototype.reduceを使う</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const add = n =&gt; new Promise(resolve =&gt; {
+  setTimeout(() =&gt; {
+    resolve(n + 10)
+  }, 2000);
+});
+(()=&gt;{
+  const addArr = [];
+  for(let i = 1; i &lt; 10; i++) {
+    addArr.push(() =&gt; {
+      console.log(i);
+      return add(i).then(v =&gt; {
+        console.log(v);
+      })
+    });
+  }
+  addArr.reduce((a, c) =&gt; a.then(c), Promise.resolve());
+})();
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">ただし繰り返しが複数なった時にしんどい </p><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">😱😱😱😱😱😱😱😱😱</h1></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Promiseを返す２つの関数</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const mul = n =&gt; new Promise(resolve =&gt; {
+  setTimeout(() =&gt; {
+    resolve(n * 2)
+  }, 1000);
+});
+const add = n =&gt; new Promise(resolve =&gt; {
+  setTimeout(() =&gt; {
+    resolve(n + 10)
+  }, 2000);
+});
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">async function + await</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">(async ()=&gt;{
+for(let i = 1; i &lt; 10; i++) {
+  await mul(i).then(async r =&gt; {
+    console.log(r);
+    for(let j = 1; j &lt; r; j++) {
+      await add(j).then(a =&gt; {
+        console.log(a);
+      }) 
+    }
+  })
+}})();
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Array.prototype.reduce</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">(()=&gt;{
+const mulArr = [];
+for(let i = 1; i &lt; 10; i++) {
+  mulArr.push(() =&gt;
+    mul(i).then(r =&gt; {
+      const addArr = [];
+      console.log(r);
+      for(let j = 1; j &lt; r; j++) {
+        addArr.push(() =&gt; add(j).then(a =&gt; {
+            console.log(a);
+          });
+        );
+      }
+      return addArr.reduce((a, c) =&gt; a.then(c), Promise.resolve());
+    })
+  );
+}
+mulArr.reduce((a, c) =&gt; a.then(c), Promise.resolve());
+})();
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">ESModules</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">// 別のファイルを読込時
+const Hoge = require(&#x27;Hoge&#x27;); // Common.js形式（今まで）
+
+import Hoge from &#x27;Hoge&#x27;;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">hoge.js</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">export default () =&gt; {};
+export const foo = () =&gt; {};
+</pre><p class="sc-kEYyzF fhSvky" font-size="2">index.js</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">import hoge, { foo } from &#x27;./hoge&#x27;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Node.jsでも以下２点で可能</p><ul class="sc-kkGfuU hISnYn" font-size="2"><li class="sc-hSdWYo bIQQAp">拡張子を .mjs にする</li><li class="sc-hSdWYo bIQQAp">--experimental-modulesフラグを付与する</li></ul><p class="sc-kEYyzF fhSvky" font-size="2">※ただしブラウザと異なる点もあるため注意が必要</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">Fetch API</h2><p class="sc-kEYyzF fhSvky" font-size="2"><a class="sc-hMqMXs kPArTU" href="https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch" color="link">詳しくはこちら</a></p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">// HTTPリクエスト等を扱える
+// 要はjQuery.ajax()と似たようなもの
+fetch(&#x27;https://example.com/profile&#x27;, {
+  method: &#x27;POST&#x27;,
+  body: JSON.stringify({username: &#x27;example&#x27;}),
+  headers:{
+    &#x27;Content-Type&#x27;: &#x27;application/json&#x27;
+  }
+}).then(res =&gt; res.json())
+.then(response =&gt; console.log(&#x27;Success:&#x27;, JSON.stringify(response)))
+.catch(error =&gt; console.error(&#x27;Error:&#x27;, error));
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">ただし…</h2><ul class="sc-kkGfuU hISnYn" font-size="2"><li class="sc-hSdWYo bIQQAp">ここまで紹介した記法は各ブラウザで対応していないものがある<br/>（特にIEは💩）  </li><li class="sc-hSdWYo bIQQAp">Node.jsはChromeのJavaScriptエンジン（V8）なので<br/>基本的にはChromeが対応していれば使える</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">非対応ブラウザ対策</h2><ol class="sc-iAyFgw iLvMQI" font-size="2"><li class="sc-hSdWYo bIQQAp">↓のサイト等で非対応の記述方式を確認して使わない
+<a class="sc-hMqMXs kPArTU" href="https://kangax.github.io/compat-table/es6/" color="link">https://kangax.github.io/compat-table/es6/</a></li><li class="sc-hSdWYo bIQQAp">es6-polyfill等のライブラリを読み込んで対応させる	</li><li class="sc-hSdWYo bIQQAp">TypeScriptやBabelといった言語やツール（コンパイラ）を使う</li></ol></div></div><div class="sc-htoDjs zIEGn"><div><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">※おまけ</h1><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">使えると思ったツールを紹介</h2></div></div><div class="sc-htoDjs zIEGn"><div><div class="sc-cMljjf cWSZJf"><table class="sc-jAaTju hruouF"><thead><tr><th align="left"></th><th align="left"></th></tr></thead><tbody><tr><td align="left"><a class="sc-hMqMXs kPArTU" href="https://eslint.org/" color="link">ESLint</a></td><td align="left">静的チェッカー</td></tr><tr><td align="left"><a class="sc-hMqMXs kPArTU" href="http://jshint.com/" color="link">JSHint</a></td><td align="left">静的チェッカー</td></tr><tr><td align="left"><a class="sc-hMqMXs kPArTU" href="https://prettier.io/" color="link">prettier</a></td><td align="left">自動フォーマッター</td></tr><tr><td align="left"><a class="sc-hMqMXs kPArTU" href="http://typedoc.org/" color="link">TYPEDOC</a></td><td align="left">TypeScript用ドキュメント作成ツール</td></tr></tbody></table></div></div></div><div class="sc-htoDjs zIEGn"><div><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">おわり</h1></div></div></div></div></div></div><div class="sc-htpNat cXgiMa"><div class="sc-bdVaJa eCoqJu"><button class="sc-bwzfXH hnohUl" title="go to: 0" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 1" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 2" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 3" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 4" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 5" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 6" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 7" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 8" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 9" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 10" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 11" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 12" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 13" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 14" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 15" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 16" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 17" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 18" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 19" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 20" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 21" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 22" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 23" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 24" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 25" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 26" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 27" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 28" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 29" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 30" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 31" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 32" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 33" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 34" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 35" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 36" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 37" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 38" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 39" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 40" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 41" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 42" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 43" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 44" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 45" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 46" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 47" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 48" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 49" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 50" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 51" color="text"></button><button class="sc-bwzfXH jlCnmb" title="go to: 52" color="text"></button></div></div><div class="sc-ifAKCX hOCGEu sc-bxivhb fbxTAJ" role="button" title="Previous Slide"></div><div class="sc-EHOje bNhvRs sc-bxivhb fbxTAJ" role="button" title="Next Slide"></div></div>
+<script src="main.js"></script>
+</body>
+</html>

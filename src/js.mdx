@@ -1,0 +1,580 @@
+export { future as theme } from 'mdx-deck/themes'
+import { Appear } from 'mdx-deck'
+
+# Moden javascript
+---
+これから個人的によく使っているJavaScriptの  
+構文や機能の中からES6以降に追加されたものを  
+中心に紹介していきたいと思います。
+---
+そもそもES6とは？😒
+<ul>
+  <Appear>
+    <li>ECMASCriptの6th Edition</li>
+    <li>ECMAScriptはEcma Internationalという団体によって標準化されているJavaScriptの仕様</li>
+    <li>2015年に策定されているため正式名称はES2015</li>
+  </Appear>
+</ul>
+---
+## 変数
+```js
+var a = 'hoge';
+let b = 'hoge';		// 再宣言が不可能
+const c = 'hoge';	// 再宣言と再代入が不可能
+
+if (true) { var test = 'hoge'; }
+console.log(test);  // 結果：'hoge' アクセスできる
+
+if (true) { let test2 = 'hoge2'; }
+console.log(test2);  // 結果：undefined アクセスできない
+```
+---
+ということで😤
+<ul>
+  <Appear>
+    <li>基本的にconstを使う</li>
+    <li>forなどのイテレータで再代入が必要な所のみletを使う</li>
+    <li>配列やオブジェクトもconst</li>
+  </Appear>
+</ul>
+---
+配列
+```js
+const arr = ['hoge'];
+arr[0] = 'hogehoge';
+```
+オブジェクト
+```js
+const obj = {
+  hoge: 'hoge'
+};
+obj.hoge = 'hogehoge';
+```
+---
+## 関数
+```js
+const fn1 = (a, b) => { return a * b }; // アロー関数
+// ↑↓同じ
+function fn1a(a, b) {
+  return a * b;
+}
+
+const fn2 = a => a * 2; // 省略可
+// ↑↓同じ
+function fn2a(a) {
+  return a * 2;
+}
+```
+---
+ということで😤
+<ul>
+  <Appear>
+    <li>個人的にはアロー関数が好き</li>
+    <li>これは好みの問題かと思う</li>
+    <li>ただし、thisを扱う場合は参照先が異なるので注意が必要</li>
+  </Appear>
+</ul>
+---
+## 論理演算子の省略記法
+```js
+const a = '';  // 0や空文字、undefinedはfalseと判定される
+const b = 'hoge';
+
+const hoge1 = a || b; // 'hoge'
+const hoge2 = b || a; // 'hoge'
+const hoge3 = a || a; // ''
+
+const hoge4 = a && b; // ''
+const hoge5 = b && a; // ''
+const hoge6 = b && b; // 'hoge'
+
+if (a) { hoge = b }  // ← これの代わり
+```
+---
+## テンプレート文字列
+```js
+const foo = 'hoge'
+const bar = 'foo'
+const bar = () => {
+    return 'bar'
+}
+
+// 変数を展開する
+const foobar = `${hoge}, ${foo}` // 'hoge, foo'
+
+// 式の評価もできる
+const some = `${bar()}` // 'bar'
+```
+---
+## 展開(スプレッド)演算子
+```js
+const arr = ['a', 'b', 'c'];
+console.log(arr);  // Array(3)
+console.log(...arr);  // 'a' 'b' 'c'
+```
+---
+Objectのコピーにも使える
+```js
+const obj1 = { a: 1, b: 2, c: 3 };
+const obj2 = { a: 1, b: 2, c: 3 };
+const hoge = obj1;  // ディープコピー
+const foo = {...obj2};  // シャロウコピー
+// const foo = Object.assign({}, obj2) と同じ
+
+hoge.a = 3;  // 参照も渡してしまっているため、元のobjも変わってしまう
+// hoge: { a: 3, b: 2, c: 3 }, obj1: { a: 3, b: 2, c: 3 }
+
+foo.a = 3;  // 値だけ渡しているのでfooしか変わらない
+// foo: { a: 3, b: 2, c: 3 }, obj2: { a: 1, b: 2, c: 3 }
+```
+---
+## 配列操作
+
+* 種類が豊富で大体のことは標準関数で実現可能
+* よく使っているものをいくつか紹介
+
+---
+Array.prototype.filter
+
+[詳しくはこちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+```js
+// 配列から条件に一致した値を抽出して配列を返す
+
+const arr = [1,2,3,4,5,6].filter(element =>  3 < element);
+console.log('arr', arr);
+
+/* 結果 */
+// (arr, [4,5,6])
+```
+---
+Array.prototype.map
+
+[詳しくはこちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+```js
+// 繰り返し処理を行うがforEachとの違いは戻り値があるかどうか
+// 配列の各要素で処理して新しい配列を生成する
+
+const arr = [1,2,3,4].map(value => value * 2);
+console.log('arr', arr);
+
+/* 結果 */
+// (arr, [2,4,6,8])
+```
+---
+Array.prototype.reduce
+
+[詳しくはこちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+```js
+// アキュムレータと配列の各要素に対して（左から右へ）関数を適用し、単一の値を返す
+
+const initialValue = 10;
+const res = [1,2,3,4,5].reduce((a, c) => a + c, initialValue);
+console.log('res', res);
+
+/* 結果 */
+// (res, 25)
+```
+
+---
+|||
+|:--|:--|
+|Array.prototype.concat|２つの配列を合成|
+|Array.prototype.find|配列から条件に一致した最初の値を返す|
+|Array.prototype.forEach|配列の要素で繰り返し(戻り値は無し)|
+|Array.prototype.includes|配列の要素を検索する時に使用|
+|Array.prototype.join|配列の要素を合成して文字列にして返す|
+
+他にもたくさんあるので興味があれば[こちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array)を眺めてみると思わぬ発見があるかもしれない
+
+---
+## オブジェクト操作
+
+良い感じにしてくれる標準関数があまりない印象  
+※下記ライブラリ等の推奨
+
+* [Lodash.js](https://lodash.com/)
+* [Ramda.js](https://ramdajs.com/)
+* [Immutable.js](https://facebook.github.io/immutable-js/)
+---
+Object.assign  
+[詳しくはこちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)  
+```js
+// オブジェクトのコピーや合成
+// 合成によく使っている ※コピーであればスプレッド演算子の方が楽
+
+const obj = { a: 1, b: 2, c: 3 };
+
+console.log(Object.assign({c: 4, d: 5}, obj));
+console.log(Object.assign(obj, {c: 4, d: 5}));
+console.log(obj);
+
+/* 結果 */
+// { c: 3, d: 5, a: 1, b: 2 }
+// { a: 1, b: 2, c: 4, d: 5 }
+// { a: 1, b: 2, c: 4, d: 5 }
+```
+---
+Object.keys  
+[詳しくはこちら](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+```js
+// key値を配列にして戻す
+// 戻り値から配列操作するためによく使う
+
+const obj = { a: 1, b: 2, c: 3 };
+console.log(Object.keys(obj));
+
+/* 結果 */
+// Array(3) [ 'a', 'b', 'c' ]
+```
+---
+変数格納
+```js
+const obj = { a: 1, b: 2, c: 3 };
+let { a, b, c } = obj;
+console.log(a, b, c);  // 1 2 3
+a = 5;
+console.log(a, obj);  //  5, { a: 1, b: 2, c: 3 }
+```
+---
+## Promise
+非同期処理の最終的な完了もしくは失敗を表すオブジェクト  
+要は非同期処理を良い感じに扱うもの
+---
+こういった処理を…
+```js
+setTimeout(function() {
+  console.log('hoge');
+}, 300);
+console.log('foo');
+
+/* 結果 */
+// foo
+// hoge
+```
+---
+hogeを表示してからfooを表示したいって場合
+---
+こんな感じで書くと実現できる
+```js
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    console.log('hoge');
+    resolve();
+  }, 300);
+});
+promise.then(function() {
+  console.log('foo');
+});
+
+/* 結果 */
+// hoge
+// foo
+```
+---
+```js
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    if (success) {
+      resolve();  // ←resolveを実行するとthenになる
+    } else {
+      reject();  // ←rejectを実行するとcatchになる
+    }
+  }, 300);
+});
+promise.then(function() {
+  console.log('success');
+}).catch(function() {
+  console.log('error');
+}).finaly(function() { ←// どちらでも実行される
+  console.log('default');
+});
+```
+---
+実はこの形、結構馴染み深い
+```js
+$.ajax({
+  url:'./hoge',
+  type:'POST',
+  data:{
+    'userid':$('#userid').val(),
+    'passward':$('#passward').val()
+  }
+}).done(data => {   // ← then 
+  console.log(data);
+}).fail(data => {   // ← catch
+  console.log(data);
+}).always(data => { // ← finaly
+  console.log(data);
+});
+```
+---
+Promiseを使うことによって本来シングルスレッドの  
+JavaScriptで並列処理を行うことができる
+
+※WebWorkerの実装が進んでいるようなので  
+Promise使わなくても実現可能かも？  
+---
+```js
+const promise1 = Promise.resolve(3);
+const promise2 = 42;  // ← Promise以外も設定可能
+const promise3 = new Promise(function(resolve, reject) {
+  setTimeout(function() {
+    resolve('foo');
+  }, 100);
+});
+
+// 全て終わってから処理したい時
+Promise.all([promise1, promise2, promise3]).then(function(values) {
+  console.log(values); // 結果：Array [3, 42, "foo"]
+});
+
+// どれか１つが終わったら処理したい時
+Promise.race([promise1, promise2, promise3]).then(function(value) {
+  console.log(value); // 結果：3
+});
+```
+---
+繰り返しを用いた直列処理(逐次処理)が厄介
+# 😱😱😱
+---
+こういう場合
+```js
+const add = n => new Promise(resolve => {
+  setTimeout(() => {
+    resolve(n + 10)
+  }, 2000);
+});
+
+for(let i = 1; i < 10; i++) {
+  console.log(i);
+  add(i).then(v => {
+    console.log(v);
+  });
+};
+```
+---
+本当はこうなってほしい
+```js
+1
+11
+2
+12
+.
+.
+省略
+.
+.
+8
+18
+9
+19
+```
+---
+でも結果は😭
+```js
+1
+2
+3
+.
+.
+省略
+.
+.
+17
+18
+19
+```
+---
+そこで使うのが…
+---
+## async function
+## +
+## await
+---
+* async関数内でのみ、awaitが使用可能
+* awaitはasync関数の実行を一時停止しPromiseの解決を待つ
+* Promiseが解決したら、async関数の実行が再開される
+---
+```js
+const add = n => new Promise(resolve => {
+  setTimeout(() => {
+    resolve(n + 10)
+  }, 2000);
+});
+
+(async () => {  // 関数の最初にasyncを付ける
+  for(let i = 1; i < 10; i++) {
+    console.log(i);
+    await add(i).then(v => {  // async関数内でPromiseを返す関数の最初にawaitを付ける
+      console.log(v);
+    });
+  }
+ })();
+```
+---
+結果
+```js
+1
+11
+2
+12
+.
+.
+省略
+.
+.
+8
+18
+9
+19
+```
+---
+正直、使わなくてもできる
+# 😏
+---
+Array.prototype.reduceを使う
+```js
+const add = n => new Promise(resolve => {
+  setTimeout(() => {
+    resolve(n + 10)
+  }, 2000);
+});
+(()=>{
+  const addArr = [];
+  for(let i = 1; i < 10; i++) {
+    addArr.push(() => {
+      console.log(i);
+      return add(i).then(v => {
+        console.log(v);
+      })
+    });
+  }
+  addArr.reduce((a, c) => a.then(c), Promise.resolve());
+})();
+```
+---
+ただし繰り返しが複数なった時にしんどい 
+# 😱😱😱😱😱😱😱😱😱
+---
+Promiseを返す２つの関数
+```js
+const mul = n => new Promise(resolve => {
+  setTimeout(() => {
+    resolve(n * 2)
+  }, 1000);
+});
+const add = n => new Promise(resolve => {
+  setTimeout(() => {
+    resolve(n + 10)
+  }, 2000);
+});
+```
+---
+async function + await
+```js
+(async ()=>{
+for(let i = 1; i < 10; i++) {
+  await mul(i).then(async r => {
+    console.log(r);
+    for(let j = 1; j < r; j++) {
+      await add(j).then(a => {
+        console.log(a);
+      }) 
+    }
+  })
+}})();
+```
+---
+Array.prototype.reduce
+```js
+(()=>{
+const mulArr = [];
+for(let i = 1; i < 10; i++) {
+  mulArr.push(() =>
+    mul(i).then(r => {
+      const addArr = [];
+      console.log(r);
+      for(let j = 1; j < r; j++) {
+        addArr.push(() => add(j).then(a => {
+            console.log(a);
+          });
+        );
+      }
+      return addArr.reduce((a, c) => a.then(c), Promise.resolve());
+    })
+  );
+}
+mulArr.reduce((a, c) => a.then(c), Promise.resolve());
+})();
+```
+---
+## ESModules
+```js
+// 別のファイルを読込時
+const Hoge = require('Hoge'); // Common.js形式（今まで）
+
+import Hoge from 'Hoge';
+```
+---
+hoge.js
+```js
+export default () => {};
+export const foo = () => {};
+```
+
+index.js
+```js
+import hoge, { foo } from './hoge'
+```
+---
+Node.jsでも以下２点で可能
+
+* 拡張子を .mjs にする
+* --experimental-modulesフラグを付与する
+
+※ただしブラウザと異なる点もあるため注意が必要
+
+---
+## Fetch API
+
+[詳しくはこちら](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch)
+```js
+// HTTPリクエスト等を扱える
+// 要はjQuery.ajax()と似たようなもの
+fetch('https://example.com/profile', {
+  method: 'POST',
+  body: JSON.stringify({username: 'example'}),
+  headers:{
+    'Content-Type': 'application/json'
+  }
+}).then(res => res.json())
+.then(response => console.log('Success:', JSON.stringify(response)))
+.catch(error => console.error('Error:', error));
+```
+---
+## ただし…
+
+* ここまで紹介した記法は各ブラウザで対応していないものがある  
+（特にIEは💩）  
+* Node.jsはChromeのJavaScriptエンジン（V8）なので  
+基本的にはChromeが対応していれば使える
+---
+## 非対応ブラウザ対策
+
+1. ↓のサイト等で非対応の記述方式を確認して使わない
+https://kangax.github.io/compat-table/es6/
+1. es6-polyfill等のライブラリを読み込んで対応させる	
+1. TypeScriptやBabelといった言語やツール（コンパイラ）を使う
+
+---
+# ※おまけ
+## 使えると思ったツールを紹介
+---
+|||
+|:--|:--|
+|[ESLint](https://eslint.org/)|静的チェッカー|
+|[JSHint](http://jshint.com/)|静的チェッカー|
+|[prettier](https://prettier.io/)|自動フォーマッター|
+|[TYPEDOC](http://typedoc.org/)|TypeScript用ドキュメント作成ツール|
+---
+# おわり

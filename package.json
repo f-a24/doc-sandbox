@@ -1,0 +1,19 @@
+{
+  "name": "doc-sandbox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:js": "mdx-deck src/js.mdx",
+    "start:front": "mdx-deck src/front.mdx",
+    "start:pwa": "mdx-deck src/pwa.mdx",
+    "start:vue": "mdx-deck src/vue.mdx",
+    "build:js": "mdx-deck build src/js.mdx -d docs/js",
+    "build:front": "mdx-deck build src/js.mdx -d docs/front",
+    "build:pwa": "mdx-deck build src/js.mdx -d docs/pwa",
+    "build:vue": "mdx-deck build src/js.mdx -d docs/vue"
+  },
+  "devDependencies": {
+    "mdx-deck": "^1.7.3"
+  }
+}
