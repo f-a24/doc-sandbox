@@ -164,7 +164,7 @@ let { a, b, c } = obj;
 console.log(a, b, c);  // 1 2 3
 a = 5;
 console.log(a, obj);  //  5, { a: 1, b: 2, c: 3 }
-</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">Promise</h2><p class="sc-kEYyzF fhSvky" font-size="2">非同期処理の最終的な完了もしくは失敗を表すオブジェクト<br/>要は非同期処理を良い感じに扱うもの</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こういった処理を…</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">setTimeout(function() {
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">Promise</h2><p class="sc-kEYyzF fhSvky" font-size="2">非同期処理の最終的な完了もしくは失敗を表すオブジェクト<br/>要は非同期処理を良い感じに扱うもの</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こういった処理を…</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">setTimeout(() =&gt; {
   console.log(&#x27;hoge&#x27;);
 }, 300);
 console.log(&#x27;foo&#x27;);
@@ -172,21 +172,21 @@ console.log(&#x27;foo&#x27;);
 /* 結果 */
 // foo
 // hoge
-</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">hogeを表示してからfooを表示したいって場合</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こんな感じで書くと実現できる</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise = new Promise(function(resolve, reject) {
-  setTimeout(function() {
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">hogeを表示してからfooを表示したいって場合</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こんな感じで書くと実現できる</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
     console.log(&#x27;hoge&#x27;);
     resolve();
   }, 300);
 });
-promise.then(function() {
+promise.then(() =&gt; {
   console.log(&#x27;foo&#x27;);
 });
 
 /* 結果 */
 // hoge
 // foo
-</pre></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise = new Promise(function(resolve, reject) {
-  setTimeout(function() {
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
     if (success) {
       resolve();  // ←resolveを実行するとthenになる
     } else {
@@ -194,11 +194,11 @@ promise.then(function() {
     }
   }, 300);
 });
-promise.then(function() {
+promise.then(() =&gt; {
   console.log(&#x27;success&#x27;);
-}).catch(function() {
+}).catch(() =&gt; {
   console.log(&#x27;error&#x27;);
-}).finaly(function() { ←// どちらでも実行される
+}).finaly(() =&gt; { ←// どちらでも実行される
   console.log(&#x27;default&#x27;);
 });
 </pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">実はこの形、結構馴染み深い</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">$.ajax({
@@ -215,21 +215,21 @@ promise.then(function() {
 }).always(data =&gt; { // ← finaly
   console.log(data);
 });
-</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Promiseを使うことによって本来シングルスレッドの<br/>JavaScriptで並列処理を行うことができる</p><p class="sc-kEYyzF fhSvky" font-size="2">※WebWorkerの実装が進んでいるようなので<br/>Promise使わなくても実現可能かも？  </p></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise1 = Promise.resolve(3);
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">Promiseを使うことによってシングルスレッドの<br/>JavaScriptで並列処理を行うことができる</p><p class="sc-kEYyzF fhSvky" font-size="2">※WebWorkerでも実現可  </p></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const promise1 = Promise.resolve(3);
 const promise2 = 42;  // ← Promise以外も設定可能
-const promise3 = new Promise(function(resolve, reject) {
-  setTimeout(function() {
+const promise3 = new Promise((resolve, reject) =&gt; {
+  setTimeout(() =&gt; {
     resolve(&#x27;foo&#x27;);
   }, 100);
 });
 
 // 全て終わってから処理したい時
-Promise.all([promise1, promise2, promise3]).then(function(values) {
+Promise.all([promise1, promise2, promise3]).then(values =&gt; {
   console.log(values); // 結果：Array [3, 42, &quot;foo&quot;]
 });
 
 // どれか１つが終わったら処理したい時
-Promise.race([promise1, promise2, promise3]).then(function(value) {
+Promise.race([promise1, promise2, promise3]).then(value =&gt; {
   console.log(value); // 結果：3
 });
 </pre></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">繰り返しを用いた直列処理(逐次処理)が厄介</p><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">😱😱😱</h1></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こういう場合</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const add = n =&gt; new Promise(resolve =&gt; {

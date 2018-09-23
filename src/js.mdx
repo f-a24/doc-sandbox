@@ -242,7 +242,7 @@ console.log(a, obj);  //  5, { a: 1, b: 2, c: 3 }
 ---
 こういった処理を…
 ```js
-setTimeout(function() {
+setTimeout(() => {
   console.log('hoge');
 }, 300);
 console.log('foo');
@@ -256,13 +256,13 @@ hogeを表示してからfooを表示したいって場合
 ---
 こんな感じで書くと実現できる
 ```js
-const promise = new Promise(function(resolve, reject) {
-  setTimeout(function() {
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
     console.log('hoge');
     resolve();
   }, 300);
 });
-promise.then(function() {
+promise.then(() => {
   console.log('foo');
 });
 
@@ -272,8 +272,8 @@ promise.then(function() {
 ```
 ---
 ```js
-const promise = new Promise(function(resolve, reject) {
-  setTimeout(function() {
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
     if (success) {
       resolve();  // ←resolveを実行するとthenになる
     } else {
@@ -281,11 +281,11 @@ const promise = new Promise(function(resolve, reject) {
     }
   }, 300);
 });
-promise.then(function() {
+promise.then(() => {
   console.log('success');
-}).catch(function() {
+}).catch(() => {
   console.log('error');
-}).finaly(function() { ←// どちらでも実行される
+}).finaly(() => { ←// どちらでも実行される
   console.log('default');
 });
 ```
@@ -308,28 +308,27 @@ $.ajax({
 });
 ```
 ---
-Promiseを使うことによって本来シングルスレッドの  
+Promiseを使うことによってシングルスレッドの  
 JavaScriptで並列処理を行うことができる
 
-※WebWorkerの実装が進んでいるようなので  
-Promise使わなくても実現可能かも？  
+※WebWorkerでも実現可  
 ---
 ```js
 const promise1 = Promise.resolve(3);
 const promise2 = 42;  // ← Promise以外も設定可能
-const promise3 = new Promise(function(resolve, reject) {
-  setTimeout(function() {
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(() => {
     resolve('foo');
   }, 100);
 });
 
 // 全て終わってから処理したい時
-Promise.all([promise1, promise2, promise3]).then(function(values) {
+Promise.all([promise1, promise2, promise3]).then(values => {
   console.log(values); // 結果：Array [3, 42, "foo"]
 });
 
 // どれか１つが終わったら処理したい時
-Promise.race([promise1, promise2, promise3]).then(function(value) {
+Promise.race([promise1, promise2, promise3]).then(value => {
   console.log(value); // 結果：3
 });
 ```
