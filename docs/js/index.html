@@ -52,7 +52,7 @@
 .sc-jAaTju {} .hruouF{width:100%;border-collapse:separate;border-spacing:0;} .hruouF td,.hruouF th{text-align:left;padding-right:.5em;padding-top:.25em;padding-bottom:.25em;border-bottom:1px solid;vertical-align:top;}</style>
 </head>
 <body>
-<div id=root><div><div class="sc-dnqmqq jotsoC" mode="NORMAL" step="0" width="100vw" height="100vh" color="text"><div class="sc-bZQynM kmKUJZ"><div class="sc-gzVnrw eGsEPm"><div class="sc-htoDjs zIEGn"><div><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">Moden javascript</h1></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">これから個人的によく使っているJavaScriptの<br/>構文や機能の中からES6以降に追加されたものを<br/>中心に紹介していきたいと思います。</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">そもそもES6とは？😒</p><ul><li style="visibility:hidden">ECMASCriptの6th Edition</li><li style="visibility:hidden">ECMAScriptはEcma Internationalという団体によって標準化されているJavaScriptの仕様</li><li style="visibility:hidden">2015年に策定されているため正式名称はES2015</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">変数</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">var a = &#x27;hoge&#x27;;
+<div id=root><div><div class="sc-dnqmqq jotsoC" mode="NORMAL" step="0" width="100vw" height="100vh" color="text"><div class="sc-bZQynM kmKUJZ"><div class="sc-gzVnrw eGsEPm"><div class="sc-htoDjs zIEGn"><div><h1 class="sc-jzJRlG enxKql sc-fjdhpX fYTmJR" font-size="4" color="heading">Moden javascript</h1></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">これから個人的によく使っているJavaScriptの<br/>構文や機能の中からES6以降に追加されたものを<br/>中心に紹介していきたいと思います。</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">そもそもES6とは？😒</p><ul><li style="visibility:hidden">ECMAScriptの6th Edition</li><li style="visibility:hidden">ECMAScriptはEcma Internationalという団体によって標準化されているJavaScriptの仕様</li><li style="visibility:hidden">2015年に策定されているため正式名称はES2015</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">変数</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">var a = &#x27;hoge&#x27;;
 let b = &#x27;hoge&#x27;;     // 再宣言が不可能
 const c = &#x27;hoge&#x27;;   // 再宣言と再代入が不可能
 
@@ -90,8 +90,8 @@ const hoge5 = b &amp;&amp; a; // &#x27;&#x27;
 const hoge6 = b &amp;&amp; b; // &#x27;hoge&#x27;
 
 if (a) { hoge = b }  // ← これの代わり
-</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">テンプレート文字列</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const foo = &#x27;hoge&#x27;
-const bar = &#x27;foo&#x27;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">テンプレート文字列</h2><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">const hoge = &#x27;hoge&#x27;
+const foo = &#x27;foo&#x27;
 const bar = () =&gt; {
     return &#x27;bar&#x27;
 }
@@ -164,7 +164,7 @@ let { a, b, c } = obj;
 console.log(a, b, c);  // 1 2 3
 a = 5;
 console.log(a, obj);  //  5, { a: 1, b: 2, c: 3 }
-</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">Promise</h2><p class="sc-kEYyzF fhSvky" font-size="2">非同期処理の最終的な完了もしくは失敗を表すオブジェクト<br/>要は非同期処理を良い感じに扱うもの</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こういった処理を…</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">setTimeout(() =&gt; {
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bMMjuq" font-size="3" color="heading">Promise</h2><p class="sc-kEYyzF fhSvky" font-size="2">非同期処理の完了もしくは失敗を表すオブジェクト<br/>要は非同期処理を良い感じに扱うもの</p></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kEYyzF fhSvky" font-size="2">こういった処理を…</p><pre class="language-js sc-cvbbAY deUraF" font-size="1" color="pre">setTimeout(() =&gt; {
   console.log(&#x27;hoge&#x27;);
 }, 300);
 console.log(&#x27;foo&#x27;);
