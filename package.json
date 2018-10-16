@@ -1,5 +1,5 @@
 {
-  "name": "doc-sandbox",
+  "name": "slides-sandbox",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -8,10 +8,12 @@
     "start:front": "mdx-deck src/front.mdx",
     "start:pwa": "mdx-deck src/pwa.mdx",
     "start:vue": "mdx-deck src/vue.mdx",
+    "start:react": "mdx-deck src/react.mdx",
     "build:js": "mdx-deck build src/js.mdx -d docs/js",
-    "build:front": "mdx-deck build src/js.mdx -d docs/front",
-    "build:pwa": "mdx-deck build src/js.mdx -d docs/pwa",
-    "build:vue": "mdx-deck build src/js.mdx -d docs/vue"
+    "build:front": "mdx-deck build src/front.mdx -d docs/front",
+    "build:pwa": "mdx-deck build src/pwa.mdx -d docs/pwa",
+    "build:vue": "mdx-deck build src/vue.mdx -d docs/vue",
+    "build:react": "mdx-deck build src/react.mdx -d docs/react"
   },
   "devDependencies": {
     "mdx-deck": "^1.7.3"
