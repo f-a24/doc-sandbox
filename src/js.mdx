@@ -3,6 +3,14 @@ import { Appear } from 'mdx-deck'
 
 # Moden javascript
 ---
+## 自己紹介
+|||
+|:--|:--|
+|Atsushi Fujisawa|<img src="img/icon.jpg" width="200" />|
+|digitalstage Inc.|Front End Engineer|  
+|GitHub|https://github.com/f-a24|
+|Qiita|https://qiita.com/f-a24|
+---
 これから個人的によく使っているJavaScriptの  
 構文や機能の中からES6以降に追加されたものを  
 中心に紹介していきたいと思います。
@@ -13,6 +21,7 @@ import { Appear } from 'mdx-deck'
     <li>ECMAScriptの6th Edition</li>
     <li>ECMAScriptはEcma Internationalという団体によって標準化されているJavaScriptの仕様</li>
     <li>2015年に策定されているため正式名称はES2015</li>
+    <li>ES6はリリースサイクルになる基点で大規模な機能追加が行われたバージョン</li>
   </Appear>
 </ul>
 ---
@@ -75,6 +84,20 @@ function fn2a(a) {
   </Appear>
 </ul>
 ---
+```js
+param = 'global param';
+const object = {
+  param: 'object param',
+  func: function () { console.log(this.param); }
+}
+const objectAllow = {
+  param: 'object param',
+  func: () => { console.log(this.param); }
+}
+object.func();        // object param
+objectAllow.func();    // global param
+```
+---
 ## 論理演算子の省略記法
 ```js
 const a = '';  // 0や空文字、undefinedはfalseと判定される
@@ -88,29 +111,30 @@ const hoge4 = a && b; // ''
 const hoge5 = b && a; // ''
 const hoge6 = b && b; // 'hoge'
 
-if (a) { hoge = b }  // ← これの代わり
+let hoge = 'foo'
+if (hoge) { hoge = 'hoge; }  // ← これの代わり
 ```
 ---
 ## テンプレート文字列
 ```js
-const hoge = 'hoge'
-const foo = 'foo'
-const bar = () => {
-    return 'bar'
-}
+const hoge = 'hoge';
+const foo = 'foo';
+const bar = () => 'bar';
 
 // 変数を展開する
-const foobar = `${hoge}, ${foo}` // 'hoge, foo'
+console.log(`${hoge}, ${foo}`); // 'hoge, foo'
 
 // 式の評価もできる
-const some = `${bar()}` // 'bar'
+console.log(`${bar()}`); // 'bar'
 ```
 ---
 ## 展開(スプレッド)演算子
 ```js
 const arr = ['a', 'b', 'c'];
-console.log(arr);  // Array(3)
+console.log(arr);  // ['a', 'b', 'c']
 console.log(...arr);  // 'a' 'b' 'c'
+console.log([...arr, 'd', 'e']);  // ['a', 'b', 'c', 'd', 'e']
+// ↑ Array.concatと同じ感じで使える
 ```
 ---
 Objectのコピーにも使える
@@ -118,7 +142,7 @@ Objectのコピーにも使える
 const obj1 = { a: 1, b: 2, c: 3 };
 const obj2 = { a: 1, b: 2, c: 3 };
 const hoge = obj1;  // ディープコピー
-const foo = {...obj2};  // シャロウコピー
+const foo = { ...obj2 };  // シャロウコピー
 // const foo = Object.assign({}, obj2) と同じ
 
 hoge.a = 3;  // 参照も渡してしまっているため、元のobjも変わってしまう
@@ -332,6 +356,29 @@ Promise.race([promise1, promise2, promise3]).then(value => {
   console.log(value); // 結果：3
 });
 ```
+---
+WebWorker(余談)😏  
+※Node.jsでもv10から使えるっぽい
+---
+index.js
+```js
+const worker = new Worker("worker.js");
+worker.addEventListener('message', e => {
+  /* ~受け取った後の処理~ */
+  console.log(e.data); // "hogehoge"
+});
+worker.postMessage('hogehoge'); // worker起動
+worker.terminate(); // worker終了
+```
+
+worker.js
+```js
+self.addEventListener('message', e => {
+  /* ~何か同時進行で行う処理~ */
+  self.postMessage(e.data); // 処理結果を送信
+});
+```
+
 ---
 繰り返しを用いた直列処理(逐次処理)が厄介
 # 😱😱😱
