@@ -9,7 +9,6 @@ import { Appear } from 'mdx-deck'
 |Atsushi Fujisawa|<img src="img/icon.jpg" width="200" />|
 |digitalstage Inc.|Front End Engineer|  
 |GitHub|https://github.com/f-a24|
-|Qiita|https://qiita.com/f-a24|
 ---
 これから個人的によく使っているJavaScriptの  
 構文や機能の中からES6以降に追加されたものを  
@@ -566,11 +565,15 @@ hoge.js
 ```js
 export default () => {};
 export const foo = () => {};
+export const bar = () => {};
 ```
 
 index.js
 ```js
 import hoge, { foo } from './hoge'
+import('./hoge').then(module => { // 動的に読み込む事も可能
+  module.bar();
+});
 ```
 ---
 Node.jsでも以下２点で可能
