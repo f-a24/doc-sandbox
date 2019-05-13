@@ -7,13 +7,19 @@
     "start:js": "mdx-deck src/js.mdx",
     "start:front": "mdx-deck src/front.mdx",
     "start:pwa": "mdx-deck src/pwa.mdx",
+    "start:speed": "mdx-deck src/speed.mdx",
     "start:vue": "mdx-deck src/vue.mdx",
     "start:react": "mdx-deck src/react.mdx",
+    "start:tech": "mdx-deck src/frontend-tech.mdx",
+    "start:type": "mdx-deck src/typescript.mdx",
     "build:js": "mdx-deck build src/js.mdx -d docs/js",
     "build:front": "mdx-deck build src/front.mdx -d docs/front",
     "build:pwa": "mdx-deck build src/pwa.mdx -d docs/pwa",
+    "build:speed": "mdx-deck build src/speed.mdx -d docs/speed",
     "build:vue": "mdx-deck build src/vue.mdx -d docs/vue",
-    "build:react": "mdx-deck build src/react.mdx -d docs/react"
+    "build:react": "mdx-deck build src/react.mdx -d docs/react",
+    "build:tech": "mdx-deck build src/frontend-tech.mdx -d docs/frontend-tech",
+    "build:type": "mdx-deck build src/typescript.mdx -d docs/typescript"
   },
   "devDependencies": {
     "mdx-deck": "^1.7.3"

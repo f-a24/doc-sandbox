@@ -1,0 +1,286 @@
+export { big as theme } from 'mdx-deck/themes'
+import { Appear } from 'mdx-deck'
+
+# We Are TypeScripters!!
+---
+## 自己紹介
+|||
+|:--|:--|
+|Atsushi Fujisawa|<img src="img/icon.jpg" width="200" />|
+|digitalstage Inc.|Front End Engineer|  
+|GitHub|https://github.com/f-a24|
+---
+最近、フロントエンド（というか`JavaScript`）界隈で  
+メジャーになりつつある`TypeScript`を  
+紹介出来たらなと思います
+---
+# What is TypeScript？
+---
+<ul>
+  <Appear>
+  	<li>Microsoft製のAltJS</li>
+  	<li>AltJS is 何？ → 変換するとJavaScriptになるやつ</li>
+  	<li>JavaScriptに型を付けたやつ</li>
+  	<li>主要な設計者にC#の設計者がいるため、C#やJavaに似ている部分がある</li>
+  	<li>Googleの社内標準言語にもなっている</li>
+  </Appear>
+</ul>
+---
+# What is good?
+---
+* 型があることでエラーを未然に防げる！
+* エディターの補完が強力に！
+---
+# How to Use ?
+---
+`Node.js`をインストール  
+↓  
+`npm i -g typescript`  
+↓  
+`index.ts`作る  
+↓  
+`tsc index.ts`  
+↓  
+`index.js`が出来あがる！
+---
+
+一般的には
+
+|||
+|:--|:--|
+|Front|[webpack](https://webpack.js.org/)等のbundleツールに組み込んで変換する|
+|Server|[ts-node](https://github.com/TypeStrong/ts-node)で実行する(`ts-node app.ts`) or 素直にコンパイルして使う|
+---
+余談
+---
+Node.jsの作者（Ryan Dahl）がDenoという  
+TypeScript版Node.jsを開発中なので  
+興味がある方は是非…
+
+[Deno](https://deno.land/)  
+[Node.jsにおける設計ミス by Ryan Dahl](https://yosuke-furukawa.hatenablog.com/entry/2018/06/07/080335)  
+---
+
+オンラインエディタで試す
+
+* [typescriptlang](https://www.typescriptlang.org/play/)
+* [codesandbox](https://codesandbox.io/)
+* [codepen](https://codepen.io/)
+---
+# How to write ?
+---
+明らかに決まっているのであれば型推論してくれるため、  
+型指定は必要なし
+
+```ts
+const hoge = 'lovelive is forever!!';
+let foo = 'lovelive is forever!!';
+
+// hoge: 'lovelive is forever!!'
+// foo: string
+```
+
+---
+決まっていなければ型指定する
+
+```ts
+function fn1(bar: string) {
+  console.log(bar + 'is lovelive');
+}
+```
+
+---
+基本的な型
+
+```ts
+// Boolean
+let isDone: boolean = false;
+
+// Number
+let decimal: number = 6;
+let hex: number = 0xf00d;
+let binary: number = 0b1010;
+let octal: number = 0o744;
+
+// String
+let color: string = "blue";
+
+// Array
+let list: number[] = [1, 2, 3];
+let list: Array<number> = [1, 2, 3];
+
+```
+---
+```ts
+// Any（出来る限り使わないでね♪）
+let notSure: any = 4;
+notSure = "maybe a string instead";
+notSure = false;
+
+// Void
+function warnUser(): void {
+    console.log("This is my warning message");
+}
+let unusable: void = undefined;
+
+// Null and Undefined
+let u: undefined = undefined;
+let n: null = null;
+
+// Object
+function create(o: object) {
+    console.log("This is my warning message");
+}
+create({ prop: 0 });
+create(42); // エラー
+```
+---
+```ts
+// Tuple
+let x: [string, number];
+x = ["hello", 10];
+// x = [10, "hello"]; // エラー
+
+// Enum
+enum Color {Red, Green, Blue}
+let c: Color = Color.Green;
+/* Color: { 0: "Red", 1: "Green", 2: "Blue",
+ Blue: 2, Green: 1, Red: 0 }
+ c: 1
+ */
+
+// Never
+function error(message: string): never {
+  throw new Error(message);
+}
+
+```
+
+---
+非プリミティブ型を定義することも可能
+
+```ts
+type hogeType = {
+  a: number,
+  b: string
+}
+interface IHoge {
+  a: number;
+  b: string;
+}
+let hoge: hogeType;
+let iHoge: IHoge;
+```
+
+---
+Q. 非プリミティブ型を定義する際に  
+`type`と`interface`の違いは？
+---
+A. あんまり無いので自分は`type`使ってる
+
+```
+object -> type
+既存型定義の拡張やClass -> interface
+```
+
+---
+ 論理演算子も使える	
+
+```ts
+type aType = { a: number };
+type bType = { b: string };
+let hoge: aType & bType;
+hoge = { a: 1, b: 'hoge' };
+// hoge = { a: 1 }; エラー
+
+let foo: aType | bType;
+hoge = { a: 1 };
+hoge = { a: 1, b: 'hoge' };
+// hoge = { a: 'hoge', b: 1 }; エラー
+
+let bar: string | number;
+bar = 'foo';
+bar = 1;
+// bar = true; エラー
+```
+---
+注意：キャストしなきゃいけいない場合も
+
+```ts
+let foo: string | number;
+
+function fn(bar?: string) { // ? = 引数なしでも大丈夫
+  console.log(bar);
+}
+// foo(foo); エラー
+fn(foo as string);
+fn(<string>foo);
+// htmlタグと混同するのでできるだけasの方使ってね
+
+```
+---
+`object`の`key`が動的な場合
+```ts
+const k = 'a';
+const o = {
+  a: 'value'
+}
+o[k];
+```
+---
+このままだとエラーになってしまうので
+---
+```ts
+const k = 'a';
+const o: {
+  [key: string]: string;
+} = {
+  a: 'value';
+}
+o[k];
+```
+---
+`jQuery`などの有名なライブラリは大体、  
+`@types/jquery`のような形で型定義ファイルが  
+用意されているのでそれを使う
+
+`npm i -D @types/jquery`
+
+```ts
+import jQuery from 'jquery';
+
+let $hoge: jQuery<HTMLElement>;
+$hoge = $('.hoge');
+
+```
+---
+
+型定義の検索
+
+[TypeSearch](https://microsoft.github.io/TypeSearch/)
+
+---
+型定義ないやつの対象方法
+
+`index.d.ts`というファイルを作って↓のように書く
+
+```ts
+declear const hoge: any;
+
+interface Window {
+  hoge: string;
+}
+
+interface jQuery {
+  hoge: (a: string) => jQuery
+}
+
+```
+---
+最後に
+---
+ﾓｰﾑﾘｰｲｷﾃｹﾅｰｲ
+---
+そんな時は`any`使っちゃいなよ
+---
+# ありがとうございました

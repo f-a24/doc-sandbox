@@ -12,68 +12,96 @@ import { Appear } from 'mdx-deck'
 |Qiita|https://qiita.com/f-a24|
 ---
 ## Agenda
-* What is React
-* Concept
-* Advantage
-* How to use
-* Environment
-* Component
-* Props & State
-* Lifecycle
-* Flux
-* Server Side Rendering
-* Ecosysytem
+<ul>
+  <li>What is React ?</li>
+  <li>What can ?</li>
+  <li>What's so good about React?</li>
+  <li>Environment</li>
+  <li>How to use</li>
+  <li>Point</li>
+  <li>Component</li>
+  <li>Concept</li>
+  <li>Redux</li>
+  <li>Server Side Rendering</li>
+  <li>Ecosysytem</li>
+</ul>
 ---
-## What is React
+## What is React ?
 FacebookがOSSとして公開しているUIを構築するためのJavaScriptライブラリ
-
-A JavaScript library for building user interfaces
 
 https://reactjs.org/
 ---
-## Concept
-<ul>
-  <Appear>
-    <li>Declarative<br />宣言型</li>
-    <li>Component-Based<br />コンポーネントベース</li>
-    <li>Learn Once, Write Anywhere<br />一度学び、どこにでも書く</li>
-  </Appear>
-</ul>
+## What can ?
+一言で言うとHTMLを部品化(コンポーネント)して作れる
 ---
-Declarative
-
-高階コンポーネントなど関数型の思考
+こういったHTMLを作りたい場合
+```html
+  <body>
+    <header><h1>Title</h1></header>
+    <menu>
+      <ul>
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+      </ul>
+    </menu>
+    <main>contents</main>
+    <footer><p>© digitalstage Inc.</p></footer>
+  </body>
+```
 ---
-Component-Based
-
-UIをコンポーネント(部品)として構築
+JavaScriptで部品化して  
+```js
+const Header = () => <header><h1>Title</h1></header>;
+const Menu = () => <menu>
+  <ul>
+    <li>menu1</li>
+    <li>menu2</li>
+    <li>menu3</li>
+  </ul>
+</menu>;
+const Main = () => <main>contents</main>;
+const Footer = () => <footer><p>© Footer</p></footer>;
+```
 ---
-Learn Once, Write Anywhere
-
-Webだけではなくモバイルアプリ、VR等も可能
-
-* [React Native](https://facebook.github.io/react-native/)
-* [React360](https://facebook.github.io/react-360/)
+その部品をカスタムタグ的な感じで組み合わせて作る
+```html
+<body>
+  <Header />
+  <Menu />
+  <Main />
+  <Footer />
+</body>
+```
 ---
-## Advantage
-<ul>
-  <Appear>
-    <li>
-    	仮想DOMという作りで画面を差分更新することによって描画が速い<br />
-    	（時と場合によりけり）
-    </li>
-    <li>コンポーネント単位で作っていくため管理がしやすい</li>
-  </Appear>
-</ul>
----
-Therefore…
+なので…
 <ul>
   <Appear>
     <li>HTMLを操作するためのものではない</li>
-    <li>サーバー側はデータを返すだけのような仕組みにする必要がある</li>
+    <li>例えるならjQueryが彫刻刀でReactは3Dプリンタ</li>
+    <li>サーバー側はデータを返すだけのような仕組みにする方が良い</li>
     <li>jQueryとの併用も可能だが好ましくはない</li>
   </Appear>
 </ul>
+---
+## What's so good about React?
+---
+部品（コンポーネント）単位で作る事で画面が部分的に変わるようなアプリケーション(SPA)の構築＆管理がしやすくなる
+
+※規模が大きかったり複雑性が増すほど効果を実感する
+---
+## Environment
+
+* [Create React App](https://github.com/facebook/create-react-app)
+* [My Boilerplate](https://github.com/f-a24/react-start)
+* [CDN](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html)
+
+---
+Trial
+
+* [codepen](https://codepen.io/)
+* [codesandbox](https://codesandbox.io/)
+
 ---
 ## How to use
 
@@ -85,25 +113,6 @@ index.html
     <script src="index.js"></script>
   </body>
 ```
-
----
-
-App.jsx
-
-```jsx
-export default class App extend React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-      </div>
-    );
-  }
-}
-```
 ---
 
 index.js
@@ -114,6 +123,24 @@ ReactDOM.render(
   <App />,
   document.getElementById('root')
 );
+```
+
+---
+App.jsx
+
+```jsx
+export default class App extend React.Component {
+  constructor() {
+    super();
+  }
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+      </div>
+    );
+  }
+}
 ```
 
 ---
@@ -131,53 +158,49 @@ Resulet
 ```
 
 ---
-## Environment
+## Point
+<ul>
+  <Appear>
+    <li>Props & State</li>
+    <li>Lifecycle methods</li>
+  </Appear>
+</ul>
+---
 
-* [Create React App](https://github.com/facebook/create-react-app)
-* [My Boilerplate](https://github.com/f-a24/react-start)
-* [CDN](https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html)
+Props & State
+
+<ul>
+  <li>Props → コンポーネントに外から与える値（関数で言う引数）</li>
+  <li>State → コンポーネントの中で使える値（関数で言う変数）</li>
+</ul>
+---
+
+Lifecycle methods
+
+コンポーネントが更新される等のタイミングで実行できる関数
 
 ---
-## Component
----
 
-Statefull Component
+<img src="img/ReactLifecycle.jpg" />
+
+---
 
 ```jsx
-class App extend React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { data: '' };
-    this.inputHandler = this.inputHandler.bind(this);
+export default class App extend React.Component {
+  constructor() {
+    super();
   }
-  inputHandler (e) {
-    this.setState({ data: e.target.value });
-  }
+  componentDidMount() { /* マウント後の処理 */}
+  componentWillUnmount() { /* アンマウント後の処理 */}
+
   render() {
     return (
-      <div className="msg">
-        <p style={{color: 'skyblue'}}>{this.state.data}</p>
-        <Input onChange={this.inputHandler} />
+      <div>
+        <h1>Hello, world!</h1>
       </div>
     );
   }
 }
-```
-
----
-Stateless Functional Component
-
-```jsx
-const SFCApp = ({msg}) => <h1>{props.msg}</h1> 
-```
-
----
-## Props & State
-
----
-
-## Lifecycle
-
 ---
 
 マウントに関するメソッド
@@ -214,19 +237,102 @@ const SFCApp = ({msg}) => <h1>{props.msg}</h1>
 
 ---
 
-<img src="img/ReactLifecycle.jpg" />
-
----
-
 [公式ドキュメント](https://reactjs.org/docs/react-component.html#the-component-lifecycle)
 
 [Qiitaで個人的にまとめたもの](https://qiita.com/f-a24/items/40b83d4c6c7d147cda9e)
 
+react lifecycleでggればたくさん出て来る  
+（バージョンには注意）
+
 ---
-## Flux
+
+## Component
+---
+
+Statefull Component
+
+```jsx
+class App extend React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: '' };
+    this.inputHandler = this.inputHandler.bind(this);
+  }
+  inputHandler (e) {
+    this.setState({ data: e.target.value });
+  }
+  render() {
+    return (
+      <div className="msg">
+        <p style={{color: 'skyblue'}}>{this.state.data}</p>
+        <Input onChange={this.inputHandler} />
+      </div>
+    );
+  }
+}
+```
+
+---
+Stateless Functional Component
+
+```jsx
+const SFCApp = ({msg}) => <h1>{props.msg}</h1> 
+```
+
+---
+Higher-Order Components（HOC）
+---
+Render Prop
+
+---
+
+## Concept
+<ul>
+  <Appear>
+    <li>Declarative<br />宣言型</li>
+    <li>Component-Based<br />コンポーネントベース</li>
+    <li>Learn Once, Write Anywhere<br />一度学び、どこにでも書く</li>
+  </Appear>
+</ul>
+---
+Declarative
+
+高階コンポーネントなど関数型の思考
+---
+Component-Based
+
+UIをコンポーネント(部品)として構築
+---
+Learn Once, Write Anywhere
+
+Webだけではなくモバイルアプリ、VR等も可能
+
+* [React Native](https://facebook.github.io/react-native/)
+* [React360](https://facebook.github.io/react-360/)
+---
+## Future 
+---
+
+[React Conf 2018](https://conf.reactjs.org/)
+
+[React Hooks API](https://reactjs.org/docs/hooks-intro.html)
+
+[Movie](https://www.youtube.com/watch?v=V-QO-KO90iQ)
+
+[recompose](https://github.com/acdlite/recompose)
+
+---
+<img src="img/acdc.jpg" />
+---
+
+新しい技術を追い求めるのもエンジニアとしての醍醐味だと思うし   
+自分は割と飽きっぽい性格なので性に合っているのかな😏
+
+---
+## Redux
+---
+## Router
 ---
 ## Server Side Rendering
----
-## Ecosysytem
 ---
 # Thanks!!
