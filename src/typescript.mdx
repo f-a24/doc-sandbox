@@ -29,7 +29,7 @@ import { Appear } from 'mdx-deck'
 # What is good?
 ---
 * 型があることでエラーを未然に防げる！
-* エディターの補完が強力に！
+* エディターの補完が強力になりDX向上！
 ---
 # How to Use ?
 ---
@@ -212,11 +212,14 @@ let foo: string | number;
 function fn(bar?: string) { // ? = 引数なしでも大丈夫
   console.log(bar);
 }
-// foo(foo); エラー
+// fn(foo); エラー
 fn(foo as string);
 fn(<string>foo);
-// htmlタグと混同するのでできるだけasの方使ってね
+// htmlタグと混同するので出来るだけasの方使ってね
 
+$('#id-hoge'); // jQuery<Element> | undefind
+// $('#id-hoge').each(i => {});  エラー
+$('#id-hoge')!.each(i => {});  // OK
 ```
 ---
 `object`の`key`が動的な場合
@@ -228,7 +231,8 @@ const o = {
 o[k];
 ```
 ---
-このままだとエラーになってしまうので
+このままだとエラーになってしまうので  
+※v3.4辺りから出なくなったみたい？
 ---
 ```ts
 const k = 'a';
@@ -281,6 +285,6 @@ interface jQuery {
 ---
 ﾓｰﾑﾘｰｲｷﾃｹﾅｰｲ
 ---
-そんな時は`any`使っちゃいなよ
+そんな時は`any`使おう
 ---
 # ありがとうございました
