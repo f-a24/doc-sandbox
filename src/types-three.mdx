@@ -1,0 +1,167 @@
+export { book as theme } from 'mdx-deck/themes';
+import { Appear } from 'mdx-deck'
+
+# [WIP]Three.js＠TypeScript
+
+2019-11-20  
+[Three.js Meetup Tokyo #0](https://www.meetup.com/ja-JP/Three-js-User-Group/events/266011583/) LT  
+Atsushi Fujisawa
+
+---
+
+## About me
+
+|||
+|:--|:--|
+|<img src="img/icon.jpg" width="200" />|Atsushi Fujisawa|
+|Job|Frontend engineer @digitalstage Inc.|
+|Twitter|[@f_a24_](https://twitter.com/f_a24_)|
+|GitHub|[f-a24](https://github.com/f-a24)|
+
+普段はTypeScriptでReact書いたり、jQueryと戦っている  
+Three.jsは趣味で勉強中
+
+---
+
+## 初めてのLTなのでどうか温かい目で見ていただければと思います🙇‍♂️
+
+---
+
+## 今日話すこと
+TypeScriptでThree.jsを使ってみてどうだったか
+
+---
+
+## １年前
+<ul>
+  <Appear>
+    <li>😃「前々から気になっていたThree.js勉強するぞー！！」</li>
+    <li><a href="https://www.oreilly.co.jp/books/9784873117706/">初めてのThree.js 第2版</a>を購入<br /><img src="img/oreilly.gif" width="300" /></li>
+    <li>😃「あ、せっかくだしTypeScriptやWebpack環境でやってみよ」</li>
+  </Appear>
+</ul>
+
+---
+
+Repository  
+https://github.com/f-a24/three-sandbox
+<img src="img/storybook.png" width="800" /><br />
+※うまく動作していないのもあるのでご了承ください
+
+---
+
+## 開始当初（r96ぐらい）
+
+---
+
+<ul>
+  <Appear>
+    <li>😃「おんや？」<br /><img src="img/import.jpg" width="800" /></li>
+    <li>😃「examplesがESModules（import/export）になっていない？」</li>
+    <li>imports-loader（webpack plugin）で解決<br /><img src="img/loader.jpg" width="800" /></li>
+  </Appear>
+</ul>
+
+---
+
+<ul>
+  <Appear>
+    <li>😃「おんや？」<br /><img src="img/types.jpg" width="800" /></li>
+    <li>😃「型定義が無い？」</li>
+    <li>自分で定義して解決<br /><img src="img/done.jpg" width="800" /></li>
+  </Appear>
+</ul>
+
+---
+
+# ツラい😭
+
+---
+
+不意に呟く
+<img src="img/twitter1.png" width="800" />
+
+---
+
+<img src="img/twitter2.png" width="800" />
+
+---
+
+# ！！！
+
+---
+
+# Mr.doob！？
+
+---
+
+<ul>
+  <Appear>
+    <li>でも、若干求めていた答えではなかった</li>
+    <li>しかし、追求する勇気は出ず…</li>
+  </Appear>
+</ul>
+
+---
+
+## １年後
+<ul>
+  <Appear>
+    <li>😃「久しぶりにThree.js再開するかー！」</li>
+    <li>😃「とりあえずバージョンアップしよ」</li>
+  </Appear>
+</ul>
+
+---
+
+<img src="img/threerep.png" width="800" />
+---
+
+# キタァァァッ！！
+
+---
+
+<ul>
+  <Appear>
+    <li>😃「あれ？でもなんか型定義が間違っているような…」<br /><img src="img/module.jpg" width="1000" /></li>
+    <li>思い切って<a href="https://github.com/mrdoob/three.js/pull/17459">PR</a>（ドキドキ）</li>
+    <li>無事マージ<br /><img src="img/pr.png" width="400" /></li>
+  </Appear>
+</ul>
+
+---
+
+🎉初めてのOSSコントリビュート🎉
+
+---
+
+# 😭😭😭😭😭
+
+---
+
+😃「あれ？他にもちょいちょいあるぞ？」
+
+* https://github.com/mrdoob/three.js/pull/17460
+* https://github.com/mrdoob/three.js/pull/17472
+* https://github.com/mrdoob/three.js/pull/17657
+
+---
+
+他にもキャストしなきゃでうーん…使いづらい
+
+---
+
+# まとめ
+
+---
+
+<ul>
+  <Appear>
+    <li>TypeScript関係はまだ改善の余地はあると思うのでコントリビュートチャンス！</li>
+    <li>拡張が必要そうであればimports-loader（サードパーティ製とか）</li>
+    <li>【余談】@types/threeは必要ない</li>
+  </Appear>
+</ul>
+
+---
+# Thanks!!
